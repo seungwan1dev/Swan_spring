@@ -1,0 +1,79 @@
+<div  class="userInfo" th:if=${session.id}>
+    <span th:text="${session.id}"></span><span> 님 / </span>
+    <span th:text="${session.mbLevel}"></span><span> 등급</span>
+    <button type="button">
+        <a th:href="@{logout}" style="color: #fff">로그아웃</a>
+    </button>
+</div>
+
+<div class="title" style="color:#00a2be" >영화 리스트</div>
+<form role="form" action="upload" method="post" enctype="multipart/form-data">
+    <div class="section form">
+       <table>
+        <colgroup>
+            <col style="width:10%"/>
+            <col style="width:90%"/>
+        </colgroup>
+        <tbody>
+            <tr> 
+                <th>제목</th>
+                <td>
+                    <input type="hidden" name="seq" placeholder="글번호" required/>
+                    <input type="text" name="title" placeholder="제목" required/>
+                </td>
+            </tr>
+            
+            <tr> 
+               <th>내용</th>
+                <td >
+                   <textarea colspan="2" id="story" name="content" placeholder="내용을 적어주세요." rows="5" cols="200" required></textarea>
+                </td>
+            </tr>
+            <tr> 
+               <th><label for="file">첨부파일</label></th>
+                <td>
+                    <input type="file" id="file" name="files" multiple />
+                </td>
+             </tr>
+             <tr>
+             	<th>별점</th>
+             	<td>
+	               <div class="starpoint_wrap">
+					  <div class="starpoint_box">
+					  <!-- 각 별점에 해당하는 레이블 -->
+					    <label for="starpoint_1" class="label_star" title="0.5"><span class="blind">0.5점</span></label>
+					    <label for="starpoint_2" class="label_star" title="1"><span class="blind">1점</span></label>
+					    <label for="starpoint_3" class="label_star" title="1.5"><span class="blind">1.5점</span></label>
+					    <label for="starpoint_4" class="label_star" title="2"><span class="blind">2점</span></label>
+					    <label for="starpoint_5" class="label_star" title="2.5"><span class="blind">2.5점</span></label>
+					    <label for="starpoint_6" class="label_star" title="3"><span class="blind">3점</span></label>
+					    <label for="starpoint_7" class="label_star" title="3.5"><span class="blind">3.5점</span></label>
+					    <label for="starpoint_8" class="label_star" title="4"><span class="blind">4점</span></label>
+					    <label for="starpoint_9" class="label_star" title="4.5"><span class="blind">4.5점</span></label>
+					    <label for="starpoint_10" class="label_star" title="5"><span class="blind">5점</span></label>
+					    <!-- 별점을 선택할 수 있는 라디오 버튼 -->
+					    <input type="radio" name="starpoint" id="starpoint_1" class="star_radio">
+					    <input type="radio" name="starpoint" id="starpoint_2" class="star_radio">
+					    <input type="radio" name="starpoint" id="starpoint_3" class="star_radio">
+					    <input type="radio" name="starpoint" id="starpoint_4" class="star_radio">
+					    <input type="radio" name="starpoint" id="starpoint_5" class="star_radio">
+					    <input type="radio" name="starpoint" id="starpoint_6" class="star_radio">
+					    <input type="radio" name="starpoint" id="starpoint_7" class="star_radio">
+					    <input type="radio" name="starpoint" id="starpoint_8" class="star_radio">
+					    <input type="radio" name="starpoint" id="starpoint_9" class="star_radio">
+					    <input type="radio" name="starpoint" id="starpoint_10" class="star_radio">
+					    <!-- 별점을 표현하는 배경 요소 -->
+					    <span class="starpoint_bg"></span>
+					  </div>
+				</div>
+				</td>
+			</div>
+            </tr>
+        </tbody>
+       </table>
+       <div class="button">
+            <button type="submit" style="margin-right: 11px">글쓰기</button>
+       </div>
+    </div>
+
+</form>
